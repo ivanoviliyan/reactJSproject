@@ -44,65 +44,38 @@ export default function Register() {
 
     return (
         <>
-            <form
-                action={registerAction}
-                className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-md"
-            >
-                <section className="registration">
-                    <div className="mb-4">{isError && <ErrorMessage message={errMsg} />}</div>
-                    <h1 className="text-2xl font-semibold text-center mb-6">Register</h1>
+            <form action={registerAction}>
+                <section className="h-screen flex flex-col gap-4 items-center">
+                    <div>{isError && <ErrorMessage message={errMsg} />}</div>
+                    <h1 className="text-4xl text-gray-900 dark:text-white mt-12">Register</h1>
 
-                    <div className="email mb-4">
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                            Email:
-                        </label>
-                        <input
-                            required
-                            type="text"
-                            name="email"
-                            className="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                            placeholder="Enter your email"
-                        />
+                    <div>
+                        <label className="text-md text-gray-900 dark:text-white" htmlFor="email">Email:</label>
+                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required type="email" name="email" placeholder="Enter your email" />
                     </div>
 
-                    <div className="password mb-4">
-                        <label
-                            htmlFor="password"
-                            className="block text-sm font-medium text-gray-700"
-                        >
-                            Password:
-                        </label>
-                        <input
+                    <div>
+                        <label className="text-md text-gray-900 dark:text-white" htmlFor="password">Password:</label>
+                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required
                             type="password"
                             name="password"
-                            className="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
                             placeholder="Enter your password"
                         />
                     </div>
 
-                    <div className="confirm-password mb-6">
-                        <label
-                            htmlFor="confirm-password"
-                            className="block text-sm font-medium text-gray-700"
-                        >
-                            Confirm password:
-                        </label>
-                        <input
+                    <div>
+                        <label className="text-md text-gray-900 dark:text-white" htmlFor="confirm-password">Confirm Password:</label>
+                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required
                             type="password"
                             name="confirmPassword"
-                            className="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
                             placeholder="Confirm your password"
                         />
                     </div>
 
-                    <div className="text-center">
-                        <button
-                            type="submit"
-                            disabled={pending}
-                            className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        >
+                    <div>
+                        <button type="submit" className="cursor-pointer bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300" disabled={pending}>
                             Register
                         </button>
                     </div>
