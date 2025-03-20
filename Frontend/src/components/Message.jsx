@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ErrorMessage({message}) {
+export default function Message({message}) {
   return (
     <div>{message}</div>
   )
