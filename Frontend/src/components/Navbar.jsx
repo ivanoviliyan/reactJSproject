@@ -40,7 +40,7 @@ export default function Navbar() {
                 <div className="text-2xl font-semibold">
                     <a href="/">Small Bar</a>
                 </div>
-                <ul className="flex space-x-6 text-lg">
+                <ul className="flex space-x-2 text-lg">
                     <li className="tranform-main">
                         <a href="/">
                             {" "}
@@ -68,7 +68,7 @@ export default function Navbar() {
                         </a>
                     </li>
                 </ul>
-                <div className="flex justify-end items-center text-lg">
+                <div className="flex justify-end items-center text-lg space-x-2">
                     <button className="tranform-main">Login</button>
                     <button className="tranform-main">Register</button>
                     <button className="tranform-main" onClick={logoutHandler}>
