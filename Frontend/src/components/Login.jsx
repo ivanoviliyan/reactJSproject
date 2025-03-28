@@ -24,18 +24,12 @@ export default function Login() {
         }, 2500);
     };
 
-    const registerAction = async (formData) => {
+    const loginAction = async (formData) => {
         const email = formData.get("email");
         const password = formData.get("password");
-        const confirmPassword = formData.get("confirmPassword");
-
-        if (password !== confirmPassword) {
-            showMessage("Passwords does not match!");
-            return;
-        }
 
         try {
-            const response = await fetch("http://localhost:3030/users/register", {
+            const response = await fetch("http://localhost:3030/users/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,9 +37,15 @@ export default function Login() {
                 body: JSON.stringify({ email, password }),
             });
 
-            if (!response.ok) showMessage("Failed to register user.");
+            if (!response.ok) showMessage("Failed to login user.");
 
-            showMessage("You have been registered!");
+            const responseData = await response.json();
+            localStorage.setItem("username", responseData.username);
+            localStorage.setItem("email", responseData.email);
+            localStorage.setItem("id", responseData._id);
+            localStorage.setItem("accessToken", responseData.accessToken);
+
+            showMessage("You have been logged in!");
         } catch (error) {
             showMessage(error);
         }
@@ -55,7 +55,7 @@ export default function Login() {
         <>
             <form
                 className=" bg-primary w-full flex flex-col gap-4 items-center"
-                action={registerAction}
+                action={loginAction}
             >
                 <section className="flex flex-col gap-4 items-center mt-12 bg-third w-3/5 p-10 rounded-lg overflow-auto max-h-[80vh] text-lg shadow-secondary">
                     <div>{isError && <Message message={errMsg} />}</div>
