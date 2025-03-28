@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #f6f5f2;
-    --color-secondary: #f0ebe3;
-    --color-third: #f3d0d7;
-    --color-forth: #ffefef;
+    --color-primary: #eff8fc;
+    --color-secondary: #7cb9e8;
+    --color-third: #f0ffff;
+    --color-forth: #f0f8ff;
+}
+
+@theme {
+    --shadow-primary: rgba(0, 0, 0, 0.08) 0px 3px 6px 0px inset;
+    --shadow-secondary: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 @layer components {
     .tranform-main {
-        @apply transform hover:scale-110 transition duration-300 hover:bg-third cursor-pointer px-4 py-2 rounded-lg
+        @apply transform hover:scale-105 transition duration-200 hover:saturate-150 hover:shadow-primary cursor-pointer px-4 py-2 rounded-lg;
     }
 }
 
-* {
-    font-family: "Galindo", sans-serif;
-    font-weight: 400;
+.ibm-plex-sans {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
     font-style: normal;
-    color: black;
+    font-variation-settings: "wdth" 100;
 }
