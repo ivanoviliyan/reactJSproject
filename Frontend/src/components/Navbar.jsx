@@ -38,12 +38,11 @@ export default function Navbar() {
         <nav className="bg-third py-5 px-2.5 shadow-secondary fixed top-0 left-0 w-full">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="text-2xl font-semibold">
-                    <a href="/">Small Bar</a>
+                    <a href="/">Bar Escape</a>
                 </div>
                 <ul className="flex space-x-2 text-lg">
                     <li className="tranform-main">
                         <a href="/">
-                            {" "}
                             <FontAwesomeIcon icon={faHouse} /> Home
                         </a>
                     </li>
@@ -60,11 +59,6 @@ export default function Navbar() {
                     <li className="tranform-main">
                         <a href="/contact">
                             <FontAwesomeIcon icon={faAddressBook} /> Contact
-                        </a>
-                    </li>
-                    <li className="tranform-main">
-                        <a href="/order">
-                            <FontAwesomeIcon icon={faArrowRight} /> Order Now
                         </a>
                     </li>
                 </ul>

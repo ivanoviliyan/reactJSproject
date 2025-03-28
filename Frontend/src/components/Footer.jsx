@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <>
             <footer className="bg-third text-center fixed bottom-0 left-0 w-full py-5 shadow-secondary z-50 text-lg">
-                <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Bar Escape. All rights reserved.</p>
                 <div className="mt-2 flex justify-center space-x-4 text-3xl">
                     <a
                         href="https://facebook.com"
