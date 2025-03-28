@@ -7,7 +7,7 @@ import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact() {
     return (
-        <section className="flex my-12 w-full justify-center gap-15">
+        <section className="flex my-12 w-full justify-center gap-7">
             <section className="bg-third p-8 rounded-lg shadow-secondary w-1/3">
                 <h1 className="text-3xl font-bold mb-4 text-center">Contact Us</h1>
                 <p className="mb-6">
@@ -52,7 +52,7 @@ export default function Contact() {
                             <FontAwesomeIcon icon={faUpRightFromSquare} />
                         </div>
                     </a>
-                    <section className="shadow-secondary rounded-lg">
+                    <section className="shadow-secondary rounded-lg p-4 pb-10">
                         <div className="flex justify-center items-center flex-col bg-third p-3 rounded-lg">
                             <p>Adress:</p> <p>123 Bar Street, City, Country</p>
                         </div>

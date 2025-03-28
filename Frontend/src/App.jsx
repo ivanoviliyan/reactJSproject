@@ -10,7 +10,7 @@ function App() {
     return (
         <>
             <Navbar />
-            <main className="min-h-screen pt-[60px] pb-[60px] bg-primary flex flex-col items-center ibm-plex-sans">
+            <main className="min-h-screen mt-15 mb-4 bg-primary flex flex-col items-center ibm-plex-sans">
                 {/* <Register /> */}
                 {/* <Login /> */}
                 {/* <About /> */}
