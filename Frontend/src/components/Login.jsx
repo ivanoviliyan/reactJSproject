@@ -59,7 +59,7 @@ export default function Login() {
             >
                 <section className="flex flex-col gap-4 items-center mt-12 bg-third w-3/5 p-10 rounded-lg overflow-auto max-h-[80vh] text-lg shadow-secondary">
                     <div>{isError && <Message message={errMsg} />}</div>
-                    <h1 className="text-4xl e mb-5">Login form</h1>
+                    <h1 className="text-4xl e mb-5">Login</h1>
 
                     <div>
                         <label className="font-semibold" htmlFor="email">
@@ -97,7 +97,7 @@ export default function Login() {
                     <div className="w-full flex justify-center mt-10">
                         <button
                             type="submit"
-                            className="tranform-main py-3 w-3/5 bg-secondary"
+                            className="tranform-main py-3 w-2/5 bg-secondary"
                             disabled={pending}
                         >
                             <FontAwesomeIcon icon={faRightToBracket} /> Login

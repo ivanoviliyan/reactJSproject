@@ -5,6 +5,9 @@
     --color-secondary: #7cb9e8;
     --color-third: #f0ffff;
     --color-forth: #f0f8ff;
+    --color-fb: #1877f2;
+    --color-ig: #c13584;
+    --color-x: #000000;
 }
 
 @theme {
@@ -14,7 +17,7 @@
 
 @layer components {
     .tranform-main {
-        @apply transform hover:scale-105 transition duration-200 hover:saturate-150 hover:shadow-primary cursor-pointer px-4 py-2 rounded-lg;
+        @apply transform hover:scale-103 transition duration-200 hover:saturate-150 hover:shadow-primary cursor-pointer px-4 py-2 rounded-lg;
     }
 }
 

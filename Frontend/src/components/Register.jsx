@@ -50,9 +50,9 @@ export default function Register() {
                 className=" bg-forth w-full flex flex-col gap-4 items-center"
                 action={registerAction}
             >
-                <section className="flex flex-col gap-4 items-center bg-third w-3/5 p-10 mt-10 rounded-lg shadow-secondary">
+                <section className="flex flex-col gap-4 items-center bg-third w-3/5 p-10 mt-12 rounded-lg shadow-secondary">
                     <div>{isError && <Message message={errMsg} />}</div>
-                    <h1 className="text-4xl mb-5">Registration form</h1>
+                    <h1 className="text-4xl mb-5">Registration</h1>
 
                     <div>
                         <label className="text-md" htmlFor="email">
@@ -100,7 +100,7 @@ export default function Register() {
                     <div className="w-full flex justify-center mt-10">
                         <button
                             type="submit"
-                            className="tranform-main py-3 w-3/5 bg-secondary"
+                            className="tranform-main py-3 w-2/5 bg-secondary"
                             disabled={pending}
                         >
                             Register
