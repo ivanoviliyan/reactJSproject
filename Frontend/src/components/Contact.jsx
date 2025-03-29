@@ -54,7 +54,10 @@ export default function Contact() {
                     </a>
                     <section className="shadow-secondary rounded-lg p-4 pb-10">
                         <div className="flex justify-center items-center flex-col bg-third p-3 rounded-lg">
-                            <p>Adress:</p> <p>123 Bar Street, City, Country</p>
+                            <p>
+                                <FontAwesomeIcon icon={faLocationDot} /> Adress:
+                            </p>
+                            <p>123 Bar Street, City, Country</p>
                         </div>
                         <div className="mt-4">
                             <iframe
