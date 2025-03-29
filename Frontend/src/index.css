@@ -8,6 +8,11 @@
     --color-fb: #1877f2;
     --color-ig: #c13584;
     --color-x: #000000;
+    --color-cocktail: #00b140;
+    --color-beer: #ff8c00;
+    --color-drink: #98ff98;
+    --color-coffee: #7e4b3c;
+    --color-tea: #e6d6a6;
 }
 
 @theme {

@@ -7,20 +7,14 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Home from "./components//Home";
 
-function App() {
+export default function App() {
     return (
-        <>
+        <main className="min-h-screen flex flex-col pt-20 bg-primary items-center ibm-plex-sans">
             <Navbar />
-            <main className="min-h-screen pt-25 mb-4 bg-primary flex flex-col items-center ibm-plex-sans">
-                {/* <Register /> */}
-                {/* <Login /> */}
-                {/* <About /> */}
-                {/* <Contact /> */}
+            <div className="flex-grow w-full">
                 <Home />
-            </main>
+            </div>
             <Footer />
-        </>
+        </main>
     );
 }
-
-export default App;
