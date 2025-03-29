@@ -1,8 +1,10 @@
 import React from "react";
+import logo from "../../public/images/logo.png";
 
 export default function About() {
     return (
-        <div className="bg-third my-12 flex flex-col items-center justify-center p-6 shadow-secondary rounded-2xl">
+        <div className="bg-third my-5 mx-5 flex flex-col items-center justify-center p-6 shadow-secondary rounded-2xl">
+            <img src={logo} alt="logo" className="w-55 my-4 shadow-lg rounded-full" />
             <h1 className="text-4xl font-bold mb-4">About Us</h1>
             <p className="max-w-2xl text-lg text-justify mb-6">
                 Welcome to our bar! We offer a variety of drinks and an amazing atmosphere for you

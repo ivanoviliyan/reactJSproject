@@ -34,7 +34,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="mt-7 mb-5 shadow-secondary bg-third py-7 w-1/3 rounded-2xl">
+            <div className="mt-7 mb-5 shadow-secondary bg-third py-7 w-2/3 rounded-2xl">
                 <h2 className="text-xl font-semibold mb-4">Our Opening Hours</h2>
                 <ul className="text-lg">
                     <li>Monday - Friday: 10:00 AM - 12:00 AM</li>

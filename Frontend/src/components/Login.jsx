@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useFormStatus } from "react-dom";
+import logo from "../../public/images/logo.png";
 
 export default function Login() {
     const { pending } = useFormStatus();
@@ -53,10 +54,8 @@ export default function Login() {
 
     return (
         <>
-            <form
-                className=" bg-primary w-full flex flex-col gap-4 items-center"
-                action={loginAction}
-            >
+            <form className=" bg-primary w-full flex flex-col items-center" action={loginAction}>
+                <img src={logo} alt="logo" className="w-55 my-4 shadow-lg rounded-full" />
                 <section className="flex flex-col gap-4 items-center mt-12 bg-third w-3/5 p-10 rounded-lg overflow-auto max-h-[80vh] text-lg shadow-secondary">
                     <div>{isError && <Message message={errMsg} />}</div>
                     <h1 className="text-4xl e mb-5">Login</h1>

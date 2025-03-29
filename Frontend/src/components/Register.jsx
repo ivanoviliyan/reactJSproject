@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Message from "./Message";
+import logo from "../../public/images/logo.png";
 
 import { useFormStatus } from "react-dom";
 
@@ -46,10 +47,8 @@ export default function Register() {
 
     return (
         <>
-            <form
-                className=" bg-forth w-full flex flex-col gap-4 items-center"
-                action={registerAction}
-            >
+            <form className=" bg-forth w-full flex flex-col items-center" action={registerAction}>
+                <img src={logo} alt="logo" className="w-55 my-4 shadow-lg rounded-full" />
                 <section className="flex flex-col gap-4 items-center bg-third w-3/5 p-10 mt-12 rounded-lg shadow-secondary">
                     <div>{isError && <Message message={errMsg} />}</div>
                     <h1 className="text-4xl mb-5">Registration</h1>
