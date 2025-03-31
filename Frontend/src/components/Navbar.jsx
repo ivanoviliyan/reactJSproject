@@ -29,9 +29,12 @@ const navigation = [
 ];
 
 export default function Navbar() {
+  const [isUser, setIsUser] = useState(false);
   const logoutHandler = async () => {
     const isUserLogged = localStorage.getItem("accessToken") ? true : false;
     if (!isUserLogged) return;
+    setIsUser(true);
+
     try {
       const response = await fetch("http://localhost:3030/users/logout", {
         method: "GET",
