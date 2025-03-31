@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function OrderItem(props) {
+export default function ManageItem(props) {
   return (
     <>
       <section className="flex items-center justify-start gap-3 bg-third shadow-secondary p-5 rounded-2xl h-full">
@@ -10,9 +10,8 @@ export default function OrderItem(props) {
           <div className="flex-grow"></div>
         </section>
 
-        <button className="py-3 px-10 rounded-2xl tranform-main flex items-center justify-center bg-secondary w-1/3">
-          Remove
-        </button>
+        <button className="bg-blue-400 tranform-main">Edit</button>
+        <button className="bg-red-400 tranform-main">Remove</button>
       </section>
     </>
   );
