@@ -6,7 +6,7 @@ export default function Item(props) {
             <section className="flex flex-col items-center justify-start gap-3 bg-third shadow-secondary p-5 rounded-2xl h-full">
                 <h1 className="text-md font-semibold text-xl">{props.name}</h1>
                 <p>Price:</p>
-                <img src={props.img} alt={props.img.toString()} className="w-2/3" />
+                <img src={props.img} alt={"ka"} className="w-2/3" />
 
                 <div className="flex-grow"></div>
 

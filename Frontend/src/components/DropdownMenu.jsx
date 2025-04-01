@@ -1,62 +1,45 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 
-export default function DropdownMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Drink type");
+export default function DropdownMenu(props) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("Drink type");
 
-  const options = ["Alcohol", "Non-alcohol", "Cocktails", "Coffee", "Tea"];
+    const options = ["Alcohol", "Non-alcohol", "Cocktails", "Coffee", "Tea"];
 
-  const toggleDropdown = () => {
-    setIsOpen((prev) => !prev);
-  };
+    const toggleDropdown = () => {
+        setIsOpen((prev) => !prev);
+    };
 
-  const handleSelect = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-  };
+    const handleSelect = (option) => {
+        setSelectedOption(option);
+        setIsOpen(false);
+    };
 
-  return (
-    <div>
-      <button
-        onClick={toggleDropdown}
-        className="bg-secondary tranform-main rounded-lg text-sm px-5 py-3.5 text-center inline-flex items-center"
-        type="button"
-      >
-        {selectedOption}
-        <svg
-          className={`w-2.5 h-2.5 ms-3 transform ${
-            isOpen ? "rotate-180" : "rotate-0"
-          } transition-transform`}
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 10 6"
+    return (
+        <select
+            className={
+                props.className
+                    ? `${props.className} bg-third tranform-main rounded-lg text-sm px-5 py-3.5`
+                    : "bg-secondary tranform-main rounded-lg text-sm px-5 py-3.5"
+            }
+            onChange={(e) => setSelectedOption(e.target.value)}
+            value={selectedOption}
+            type={props.name}
+            name={props.name}
         >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="m1 1 4 4 4-4"
-          />
-        </svg>
-      </button>
-      {isOpen && (
-        <div className="absolute z-10 mt-2 rounded-lg shadow-primary w-44 bg-secondary tranform-main">
-          <ul className="py-2 text-sm">
             {options.map((option) => (
-              <li key={option}>
-                <button
-                  onClick={() => handleSelect(option)}
-                  className="w-full text-left block px-4 py-2 hover:bg-third cursor-pointer rounded-xl"
+                <option
+                    key={option}
+                    value={option}
+                    className={
+                        props.className
+                            ? `${props.className} bg-third tranform-main rounded-lg text-sm px-5 py-3.5`
+                            : "bg-secondary tranform-main rounded-lg text-sm px-5 py-3.5"
+                    }
                 >
-                  {option}
-                </button>
-              </li>
+                    {option}
+                </option>
             ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
+        </select>
+    );
 }
