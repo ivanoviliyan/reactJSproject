@@ -5,19 +5,18 @@ import logo from "../../public/images/logo.png";
 import { UserContext } from "../context/UserContext";
 
 export default function ProductManagement() {
-    const { authData } = useContext(UserContext);
     const [showManageProductModal, setShowManageProductModal] = useState(false);
-    const { user, setUser } = useContext(AuthContext);
+    const { authData } = useContext(UserContext);
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
-        if (user.accessToken) {
+        if (authData.accessToken) {
             try {
                 const response = await fetch("http://localhost:3030/data/barEscape", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Authorization": user.accessToken,
+                        "X-Authorization": authData.accessToken,
                     },
                 });
 
