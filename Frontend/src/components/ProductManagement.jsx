@@ -15,28 +15,29 @@ export default function ProductManagement() {
     const { user, setUser } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        const getProducts = async () => {
-            if (user.accessToken) {
-                try {
-                    console.log(user);
-                    const response = await fetch("http://localhost:3030/data/barEscape", {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-Authorization": user.accessToken,
-                        },
-                    });
+    const getProducts = async () => {
+        if (user.accessToken) {
+            try {
+                console.log(user);
+                const response = await fetch("http://localhost:3030/data/barEscape", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Authorization": user.accessToken,
+                    },
+                });
 
-                    const result = await response.json();
-                    setProducts(result);
+                const result = await response.json();
+                setProducts(result);
 
-                    console.log(response.status);
-                } catch (error) {
-                    console.error(error);
-                }
+                console.log(response.status);
+            } catch (error) {
+                console.error(error);
             }
-        };
+        }
+    };
+
+    useEffect(() => {
         getProducts();
     }, []);
 
@@ -56,7 +57,10 @@ export default function ProductManagement() {
             )}
 
             <section className="flex gap-3 w-full">
-                <button className="bg-secondary tranform-main w-2/3 py-4 shadow-secondary">
+                <button
+                    className="bg-secondary tranform-main w-2/3 py-4 shadow-secondary"
+                    onClick={getProducts}
+                >
                     Load Products
                 </button>
                 <button

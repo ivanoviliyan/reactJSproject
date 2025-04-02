@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 export default function ManageProduct({ setShowManageProductModal, header }) {
     const { user, setUser } = useContext(AuthContext);
+
     const manageFormAction = async (formData) => {
         const image = formData.get("image");
         const name = formData.get("name");
@@ -12,12 +13,10 @@ export default function ManageProduct({ setShowManageProductModal, header }) {
         const quantity = formData.get("quantity");
         const price = formData.get("price");
         const description = formData.get("description");
-
-        console.log(image, name, type, quantity, price, description);
         const data = { image, name, type, quantity, price, description };
+        setShowManageProductModal((curr) => !curr);
 
         try {
-            console.log(user);
             const response = await fetch("http://localhost:3030/data/barEscape", {
                 method: "POST",
                 headers: {
@@ -26,8 +25,6 @@ export default function ManageProduct({ setShowManageProductModal, header }) {
                 },
                 body: JSON.stringify(data),
             });
-
-            console.log(response.status);
         } catch (error) {
             console.error(error);
         }
@@ -134,7 +131,7 @@ export default function ManageProduct({ setShowManageProductModal, header }) {
                         <button
                             type="button"
                             className="tranform-main py-3 w-2/5 bg-red-400 shadow-secondary"
-                            onClick={() => setShowManageProductModal(false)}
+                            onClick={() => setShowManageProductModal((curr) => !curr)}
                         >
                             Cancel
                         </button>
