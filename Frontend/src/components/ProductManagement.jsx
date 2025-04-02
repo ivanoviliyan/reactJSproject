@@ -6,17 +6,18 @@ import { UserContext } from "../context/UserContext";
 
 export default function ProductManagement() {
     const [showManageProductModal, setShowManageProductModal] = useState(false);
-    const { authData } = useContext(UserContext);
+    const { accessToken } = useContext(UserContext);
     const [products, setProducts] = useState([]);
+    console.log(accessToken);
 
     const getProducts = async () => {
-        if (authData.accessToken) {
+        if (accessToken) {
             try {
                 const response = await fetch("http://localhost:3030/data/barEscape", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Authorization": authData.accessToken,
+                        "X-Authorization": accessToken,
                     },
                 });
 

@@ -4,9 +4,8 @@ import ManageProduct from "../components/ManageProduct";
 import { UserContext } from "../context/UserContext";
 
 export default function ManageItem(props) {
-    const { authData } = useContext(UserContext);
+    const { accessToken } = useContext(UserContext);
     const [showManageProductModal, setShowManageProductModal] = useState(false);
-    const { user } = useContext(AuthContext);
 
     const removeItem = async () => {
         try {
@@ -17,7 +16,7 @@ export default function ManageItem(props) {
                 method,
                 headers: {
                     "Content-Type": "application/json",
-                    "X-Authorization": user.accessToken,
+                    "X-Authorization": accessToken,
                 },
             });
 

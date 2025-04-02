@@ -3,8 +3,7 @@ import DropdownMenu from "./DropdownMenu";
 import { UserContext } from "../context/UserContext";
 
 export default function ManageProduct({ setShowManageProductModal, header, getProducts, data }) {
-    const { authData } = useContext(UserContext);
-    const { user } = useContext(AuthContext);
+    const { accessToken } = useContext(UserContext);
     const manageFormAction = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -23,7 +22,7 @@ export default function ManageProduct({ setShowManageProductModal, header, getPr
                 method,
                 headers: {
                     "Content-Type": "application/json",
-                    "X-Authorization": user.accessToken,
+                    "X-Authorization": accessToken,
                 },
                 body: JSON.stringify(formDataFormatted),
             });
