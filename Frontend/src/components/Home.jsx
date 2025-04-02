@@ -5,15 +5,15 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 export default function Home() {
-    const { user, setUser } = useContext(UserContext);
+    const { email } = useContext(UserContext);
     return (
         <div className="flex flex-col items-center justify-center text-center animate-fadeIn">
             <img src={logo} alt="logo" className="w-55 mb-4 shadow-lg rounded-full" />
-            {!user ? (
+            {!email ? (
                 <p className="underline">Please login to use ordering functionallity</p>
             ) : null}
             <Link
-                to={user ? "/catalog" : "users/login"}
+                to={email ? "/catalog" : "users/login"}
                 className="mt-5 p-4 bg-secondary rounded-xl tranform-main text-xl font-semibold"
             >
                 Start Ordering Now

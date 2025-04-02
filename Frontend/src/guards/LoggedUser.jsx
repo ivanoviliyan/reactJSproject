@@ -3,9 +3,9 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 export default function LoggedUser() {
-    const { authData } = useContext(UserContext);
+    const { authData, email } = useContext(UserContext);
 
-    if (!authData.email) {
+    if (!email) {
         return <Navigate to="/users/login" />;
     }
 
