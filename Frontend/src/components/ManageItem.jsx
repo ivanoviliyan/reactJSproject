@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useEffect } from "react";
 import ManageProduct from "../components/ManageProduct";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/UserContext";
 
 export default function ManageItem(props) {
+    const { authData } = useContext(UserContext);
     const [showManageProductModal, setShowManageProductModal] = useState(false);
     const { user } = useContext(AuthContext);
 
@@ -42,10 +43,12 @@ export default function ManageItem(props) {
                     />
                 </div>
             )}
-            <section className="flex items-center justify-start gap-3 bg-third shadow-secondary p-5 rounded-2xl h-full">
+            <section className="flex items-center justify-start gap-3 bg-third shadow-secondary p-5 rounded-2xl h-full ">
                 <section className="w-2/3 gap-5 flex justify-around items-center">
                     <img src={props.image} alt={"nothing"} className="w-10" />
                     <h1 className="text-md">{props.name}</h1>
+                    <p className="text-md">#{props.quantity}</p>
+                    <p className="text-md">${props.price}</p>
                     <div className="flex-grow"></div>
                 </section>
 

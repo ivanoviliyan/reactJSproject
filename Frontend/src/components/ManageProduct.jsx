@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import DropdownMenu from "./DropdownMenu";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/UserContext";
 
 export default function ManageProduct({ setShowManageProductModal, header, getProducts, data }) {
+    const { authData } = useContext(UserContext);
     const { user } = useContext(AuthContext);
     const manageFormAction = async (e) => {
         e.preventDefault();

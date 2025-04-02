@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from "react-router";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/UserContext";
 
 export default function LoggedUser() {
-    const { user, setUser } = useContext(AuthContext);
+    const { authData } = useContext(UserContext);
 
-    if (!user) {
+    if (!authData.email) {
         return <Navigate to="/users/login" />;
     }
 

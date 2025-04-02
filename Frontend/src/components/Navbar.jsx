@@ -7,9 +7,10 @@ import {
     faCircleInfo,
     faAddressBook,
     faListCheck,
+    faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/UserContext";
 
 const navigation = [
     { name: "Home", path: "/", icon: faHouse, showToLoggedUser: true },
@@ -30,9 +31,8 @@ const navigation = [
 ];
 
 export default function Navbar() {
-    const { logout, _id, user } = useContext(AuthContext);
-    console.log(user);
-    const display = user ? true : false;
+    const { logout, email } = useContext(UserContext);
+    const display = email ? true : false;
     const navigation = [
         { name: "Home", path: "/", icon: faHouse, showToLoggedUser: true },
         { name: "Catalog", path: "/catalog", icon: faTag, showToLoggedUser: display },
@@ -88,7 +88,7 @@ export default function Navbar() {
                 </ul>
 
                 <div className="flex justify-end items-center text-lg space-x-2">
-                    {!user ? (
+                    {!email ? (
                         <>
                             <Link to={"/users/login"} className="tranform-main">
                                 Login
@@ -98,9 +98,14 @@ export default function Navbar() {
                             </Link>
                         </>
                     ) : (
-                        <Link to={"/"} className="tranform-main" onClick={logoutHandler}>
-                            Logout
-                        </Link>
+                        <>
+                            <Link to={"/"} className="tranform-main" onClick={logout}>
+                                Logout
+                            </Link>
+                            <Link to={"/profile"} className="tranform-main">
+                                <FontAwesomeIcon icon={faUser} /> Profile
+                            </Link>
+                        </>
                     )}
                 </div>
             </div>

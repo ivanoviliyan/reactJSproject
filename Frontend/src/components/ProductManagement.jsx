@@ -2,9 +2,10 @@ import React, { useState, useContext, useEffect } from "react";
 import ManageItem from "./ManageItem";
 import ManageProduct from "./ManageProduct";
 import logo from "../../public/images/logo.png";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/UserContext";
 
 export default function ProductManagement() {
+    const { authData } = useContext(UserContext);
     const [showManageProductModal, setShowManageProductModal] = useState(false);
     const { user, setUser } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
@@ -64,7 +65,7 @@ export default function ProductManagement() {
                 </button>
             </section>
 
-            <div className="w-full bg-forth rounded-xl shadow-primary flex flex-col gap-3 p-4 max-h-150 overflow-y-auto">
+            <div className="w-full bg-forth rounded-xl shadow-primary flex flex-col gap-3 p-4 max-h-150 overflow-y-auto mb-5">
                 {products.length > 0 ? (
                     products.map((item) => (
                         <ManageItem

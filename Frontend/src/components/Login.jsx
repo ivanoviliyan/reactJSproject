@@ -10,11 +10,11 @@ import {
 
 import { useFormStatus } from "react-dom";
 import logo from "../../public/images/logo.png";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/UserContext";
 import { Link, useNavigate } from "react-router";
 
 export default function Login() {
-    const { login } = useContext(AuthContext);
+    const { login } = useContext(UserContext);
     const navigation = useNavigate();
     const { pending } = useFormStatus();
     const [isError, setIsError] = useState(false);
@@ -51,7 +51,6 @@ export default function Login() {
             if (!response.ok) showMessage("Failed to login user.");
 
             const responseData = await response.json();
-            console.log(responseData);
             login(responseData);
 
             showMessage("You have been logged in!");

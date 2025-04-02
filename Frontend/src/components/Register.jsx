@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Message from "./Message";
 import logo from "../../public/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,9 +9,12 @@ import {
     faRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { UserContext } from "../context/UserContext";
+
 import { useFormStatus } from "react-dom";
 
 export default function Register() {
+    const { login } = useContext(UserContext);
     const { pending } = useFormStatus();
     const [isError, setIsError] = useState(false);
     const [errMsg, setErrMsg] = useState("");
@@ -45,7 +48,8 @@ export default function Register() {
             });
 
             if (!response.ok) showMessage("Failed to register user.");
-
+            const result = await response.json();
+            login(result);
             showMessage("You have been registered!");
         } catch (error) {
             showMessage(error);
