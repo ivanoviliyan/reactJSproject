@@ -64,17 +64,21 @@ export default function Catalog() {
                                 <SearchBar />
                             </section>
                             <section className="grid grid-cols-2 gap-4 my-5 md:grid-cols-3 lg:grid-cols-4">
-                                {products.map((item) => (
-                                    <Item
-                                        description={item.description}
-                                        img={item.img}
-                                        name={item.name}
-                                        price={item.price}
-                                        quantity={item.quantity}
-                                        type={item.type}
-                                        id={item._id}
-                                    />
-                                ))}
+                                {products.length > 0 ? (
+                                    products.map((item) => (
+                                        <Item
+                                            description={item.description}
+                                            img={item.img}
+                                            name={item.name}
+                                            price={item.price}
+                                            quantity={item.quantity}
+                                            type={item.type}
+                                            id={item._id}
+                                        />
+                                    ))
+                                ) : (
+                                    <h2>No Products Avaliable</h2>
+                                )}
                             </section>
                         </section>
                     </section>

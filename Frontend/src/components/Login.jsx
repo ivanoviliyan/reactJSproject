@@ -14,8 +14,8 @@ import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router";
 
 export default function Login() {
+    const { login } = useContext(AuthContext);
     const navigation = useNavigate();
-    const { user, setUser } = useContext(AuthContext);
     const { pending } = useFormStatus();
     const [isError, setIsError] = useState(false);
     const [errMsg, setErrMsg] = useState("");
@@ -51,13 +51,8 @@ export default function Login() {
             if (!response.ok) showMessage("Failed to login user.");
 
             const responseData = await response.json();
-
-            setUser({
-                username: responseData.username,
-                email: responseData.email,
-                id: responseData._id,
-                accessToken: responseData.accessToken,
-            });
+            console.log(responseData);
+            login(responseData);
 
             showMessage("You have been logged in!");
             setTimeout(() => {

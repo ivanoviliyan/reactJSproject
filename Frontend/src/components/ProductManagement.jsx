@@ -1,11 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import ManageItem from "./ManageItem";
-import alcohol from "../../public/images/temp/alcohol.png";
-import beer from "../../public/images/temp/beer.png";
-import cocktail from "../../public/images/temp/cocktail.png";
-import coffee from "../../public/images/temp/coffee.png";
-import drink from "../../public/images/temp/drink.png";
-import tea from "../../public/images/temp/tea.png";
 import ManageProduct from "./ManageProduct";
 import logo from "../../public/images/logo.png";
 import { AuthContext } from "../context/AuthContext";
@@ -18,7 +12,6 @@ export default function ProductManagement() {
     const getProducts = async () => {
         if (user.accessToken) {
             try {
-                console.log(user);
                 const response = await fetch("http://localhost:3030/data/barEscape", {
                     method: "GET",
                     headers: {
@@ -41,7 +34,6 @@ export default function ProductManagement() {
         getProducts();
     }, []);
 
-    console.log(products);
     return (
         <div className="flex flex-col gap-5 w-2/3 justify-center items-center mx-auto">
             <img src={logo} alt="logo" className="w-55 shadow-lg rounded-full" />
@@ -52,6 +44,7 @@ export default function ProductManagement() {
                     <ManageProduct
                         setShowManageProductModal={setShowManageProductModal}
                         header={"Add"}
+                        getProducts={getProducts}
                     />
                 </div>
             )}
@@ -72,17 +65,22 @@ export default function ProductManagement() {
             </section>
 
             <div className="w-full bg-forth rounded-xl shadow-primary flex flex-col gap-3 p-4 max-h-150 overflow-y-auto">
-                {products.map((item) => (
-                    <ManageItem
-                        description={item.description}
-                        img={item.img}
-                        name={item.name}
-                        price={item.price}
-                        quantity={item.quantity}
-                        type={item.type}
-                        id={item._id}
-                    />
-                ))}
+                {products.length > 0 ? (
+                    products.map((item) => (
+                        <ManageItem
+                            description={item.description}
+                            image={item.image}
+                            name={item.name}
+                            price={item.price}
+                            quantity={item.quantity}
+                            type={item.type}
+                            id={item._id}
+                            getProducts={getProducts}
+                        />
+                    ))
+                ) : (
+                    <h2>No Products Avaliable</h2>
+                )}
             </div>
         </div>
     );

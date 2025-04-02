@@ -30,7 +30,7 @@ const navigation = [
 ];
 
 export default function Navbar() {
-    const { user, setUser } = useContext(AuthContext);
+    const { logout, _id, user } = useContext(AuthContext);
     console.log(user);
     const display = user ? true : false;
     const navigation = [
@@ -61,7 +61,7 @@ export default function Navbar() {
                 },
             });
 
-            setUser(null);
+            logout();
         } catch (error) {
             console.log(error);
         }

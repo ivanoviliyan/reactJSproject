@@ -26,6 +26,7 @@ export default function DropdownMenu(props) {
             value={selectedOption}
             type={props.name}
             name={props.name}
+            defaultValue={props.defaultValue}
         >
             {options.map((option) => (
                 <option
