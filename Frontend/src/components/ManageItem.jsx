@@ -1,9 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useEffect } from "react";
 import ManageProduct from "../components/ManageProduct";
+import { AuthContext } from "../context/AuthContext";
 
 export default function ManageItem(props) {
     const [showManageProductModal, setShowManageProductModal] = useState(false);
+    const { user } = useContext(AuthContext);
+
+    const removeItem = async () => {
+        try {
+            const method = "DELETE";
+            const url = `http://localhost:3030/data/barEscape/${props.id}`;
+
+            const response = await fetch(url, {
+                method,
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Authorization": user.accessToken,
+                },
+            });
+
+            if (response.ok) {
+                props.getProducts();
+            } else {
+                console.error("Failed to submit product");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <>
@@ -30,7 +55,9 @@ export default function ManageItem(props) {
                 >
                     Edit
                 </button>
-                <button className="bg-red-400 tranform-main">Remove</button>
+                <button className="bg-red-400 tranform-main" onClick={removeItem}>
+                    Remove
+                </button>
             </section>
         </>
     );
